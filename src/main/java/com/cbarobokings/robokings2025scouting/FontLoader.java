@@ -1,25 +1,33 @@
 package com.cbarobokings.robokings2025scouting;
 
-import java.awt.*;
-import java.io.File;
+import javafx.scene.text.Font;
+
 import java.io.IOException;
+import java.io.InputStream;
 
 public class FontLoader {
-    public static void main(String[] args) {
-        try {
-            // Load the font file (Ensure the path is correct)
-            File fontFile = new File("robokingsscouting/BerlinSansFB.ttf"); // e.g., "C:/fonts/MyFont.ttf"
-            Font customFont = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
-            // Set font size
-            customFont = customFont.deriveFont(24f);
+    private static final String FONT_DIRECTORY = "/com/cbarobokings/robokings2025scouting/fonts/";
+    private static final String[] FONT_FILES = { "BerlinSansFB.ttf", "BerlinSansFBBold.ttf", "BerlinSansFBDemiBold.ttf" };
 
-            // Register the font in the system (optional)
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            ge.registerFont(customFont);
-
-        } catch (IOException | FontFormatException e) {
-            e.printStackTrace();
+    // Registers the bundled fonts with JavaFX so FXML/CSS can refer to them by family name
+    // (e.g. "Berlin Sans FB"). Must be called before any scene that uses them is loaded.
+    public static void loadFonts() {
+        for (String fontFile : FONT_FILES) {
+            try (InputStream stream = FontLoader.class.getResourceAsStream(FONT_DIRECTORY + fontFile)) {
+                if (stream == null) {
+                    System.out.println("Font resource not found: " + fontFile);
+                    continue;
+                }
+                Font font = Font.loadFont(stream, 12);
+                if (font == null) {
+                    System.out.println("Failed to load font: " + fontFile);
+                } else {
+                    System.out.println("Loaded font: " + font.getName() + " (family: " + font.getFamily() + ")");
+                }
+            } catch (IOException e) {
+                System.out.println("Error reading font " + fontFile + ": " + e.getMessage());
+            }
         }
     }
 }

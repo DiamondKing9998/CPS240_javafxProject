@@ -45,6 +45,8 @@ public class PrimaryWindow extends Application {
         Image windowIcon = new Image(PrimaryWindow.class.getResourceAsStream(imgDirectory+"windowIcon.png"));
         stage.getIcons().add(windowIcon);
 
+        FontLoader.loadFonts();
+
         switchScene("Prematch.fxml");
 
         stage.show();
