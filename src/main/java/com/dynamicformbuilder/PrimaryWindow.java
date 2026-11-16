@@ -1,20 +1,10 @@
-package com.cbarobokings.robokings2025scouting;
-
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.stage.Stage;
+package com.dynamicformbuilder;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.net.URL;
-import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -29,6 +19,13 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
+
 
 public class PrimaryWindow extends Application {
 
@@ -38,21 +35,29 @@ public class PrimaryWindow extends Application {
     public void start(Stage stage) throws IOException {
         primaryStage = stage;
 
-        stage.setTitle("CBA RoboKings Scouting - 2025 REEFSCAPE");
+        stage.setTitle("DynamicFormBuilder - Setup");
         stage.setResizable(false);
 
-        String imgDirectory = "/com/cbarobokings/robokings2025scouting/img/";
+        String imgDirectory = "/com/dynamicformbuilder/img/";
         Image windowIcon = new Image(PrimaryWindow.class.getResourceAsStream(imgDirectory+"windowIcon.png"));
         stage.getIcons().add(windowIcon);
 
         FontLoader.loadFonts();
 
-        switchScene("Prematch.fxml");
+        switchScene("Setup.fxml");
 
         stage.show();
 
-        createDirectory("robokingsscouting");
+        createDirectory("dynamicformbuilder");
 
+    }
+
+    public static void changeWindowTitle(String newTitle) {
+        if (primaryStage != null) {
+            primaryStage.setTitle(newTitle);
+        } else {
+            System.out.println("Primary stage not initialized.");
+        }
     }
 
     public static Stage getPrimaryStage() {
@@ -66,7 +71,7 @@ public class PrimaryWindow extends Application {
     // Static method to switch scenes based on the FXML file path
     public static void switchScene(String fxmlFileName) {
 
-        String fxmlDirectory = "/com/cbarobokings/robokings2025scouting/fxml/";
+        String fxmlDirectory = "/com/dynamicformbuilder/fxml/";
         URL fxmlLocation = PrimaryWindow.class.getResource(fxmlDirectory+fxmlFileName);
         System.out.println("FXML Path: " + fxmlLocation);
 
@@ -125,7 +130,7 @@ public class PrimaryWindow extends Application {
     }
 
     public static void clearQRCodesDirectory() {
-        String directoryPath = "robokingsscouting/qr_codes";
+        String directoryPath = "dynamicformbuilder/qr_codes";
         Path qrCodeDir = Paths.get(directoryPath).toAbsolutePath();
         File dir = qrCodeDir.toFile();
 

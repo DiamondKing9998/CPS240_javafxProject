@@ -1,4 +1,4 @@
-module com.cbarobokings.robokings2025scouting {
+module com.dynamicformbuilder {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
@@ -6,7 +6,7 @@ module com.cbarobokings.robokings2025scouting {
     requires com.google.zxing.javase;
 
 
-    opens com.cbarobokings.robokings2025scouting to javafx.fxml;
+    opens com.dynamicformbuilder to javafx.fxml;
 
-    exports com.cbarobokings.robokings2025scouting;
+    exports com.dynamicformbuilder;
 }

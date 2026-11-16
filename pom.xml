@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.cbarobokings</groupId>
-    <artifactId>robokings2025scouting</artifactId>
+    <groupId>com.dynamicformbuilder</groupId>
+    <artifactId>dynamicformbuilder</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>2025robokingsscouting</name>
+    <name>DynamicFormBuilder</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -74,7 +74,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.cbarobokings.robokings2025scouting/com.cbarobokings.robokings2025scouting.PrimaryWindow
+                                com.dynamicformbuilder/com.dynamicformbuilder.PrimaryWindow
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

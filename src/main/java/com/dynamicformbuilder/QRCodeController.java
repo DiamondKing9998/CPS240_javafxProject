@@ -1,4 +1,4 @@
-package com.cbarobokings.robokings2025scouting;
+package com.dynamicformbuilder;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,7 +26,7 @@ public class QRCodeController {
         String matchNumber = (String) restartScoutingStore.getValue("matchNumber");
         String startingColorAndPosition = (String) restartScoutingStore.getValue("startingColorAndPosition");
         String qrCodeFileName = "qrcode_M" + matchNumber + "_" + startingColorAndPosition + ".png";
-        String qrCodeLocationDirectory = "robokingsscouting/qr_codes/" + qrCodeFileName;
+        String qrCodeLocationDirectory = "dynamicformbuilder/qr_codes/" + qrCodeFileName;
 
         Path path = Paths.get(qrCodeLocationDirectory).toAbsolutePath();
         File file = path.toFile();
@@ -48,7 +48,7 @@ public class QRCodeController {
     void scoutNextMatchButtonClick(ActionEvent event) {
         SceneDataStore restartScoutingStore = SceneDataStore.getInstance();
         restartScoutingStore.clearData();
-        PrimaryWindow.switchScene("Prematch.fxml");
+        PrimaryWindow.switchScene("Setup.fxml");
     }
 
 }

@@ -1,4 +1,4 @@
-package com.cbarobokings.robokings2025scouting;
+package com.dynamicformbuilder;
 
 import javafx.scene.text.Font;
 
@@ -7,7 +7,7 @@ import java.io.InputStream;
 
 public class FontLoader {
 
-    private static final String FONT_DIRECTORY = "/com/cbarobokings/robokings2025scouting/fonts/";
+    private static final String FONT_DIRECTORY = "/com/dynamicformbuilder/fonts/";
     private static final String[] FONT_FILES = { "BerlinSansFB.ttf", "BerlinSansFBBold.ttf", "BerlinSansFBDemiBold.ttf" };
 
     // Registers the bundled fonts with JavaFX so FXML/CSS can refer to them by family name
